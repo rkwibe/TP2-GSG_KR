@@ -1,8 +1,8 @@
 package tests;
 
-import livres.Auteur;
-import livres.Ouvrage;
+import livres. *;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,23 +11,25 @@ public class Librairie {
     private List<Ouvrage> ouvrages = new ArrayList<>();
 
     public Librairie(){
-        Auteur albertine = new Auteur("Albertine", "Tremblay", "Canada");
-        Auteur john = new Auteur("John", "Smith", "Etats-Unis");
-        Auteur jean = new Auteur("Jean", "Némarre", "Suisse");
+        Auteur albertine = new Auteur("Albertine", "Tremblay", new Pays("Canada", "CCC"));
+        Auteur john = new Auteur("John", "Smith", new Pays("Etats-Unis", "EEE"));
+        Auteur jean = new Auteur("Jean", "Némarre", new Pays("Suisse", "SSS"));
         auteurs.add(albertine);
         auteurs.add(john);
         auteurs.add(jean);
 
-        ouvrages.add(new Ouvrage("Titre 1", john));
-        ouvrages.add(new Ouvrage("Titre 2", albertine));
-        ouvrages.add(new Ouvrage("Titre 3", john));
-        ouvrages.add(new Ouvrage("Titre 4", john));
-        ouvrages.add(new Ouvrage("Titre 5", albertine));
-        ouvrages.add(new Ouvrage("Titre 6", john));
-        ouvrages.add(new Ouvrage("Titre 7", john));
-        ouvrages.add(new Ouvrage("Titre 8", albertine,Ouvrage.Format.VIDEO));
-        ouvrages.add(new Ouvrage("Titre 9", john,Ouvrage.Format.AUDIO));
-        ouvrages.add(new Ouvrage("Titre 10", jean));
+        ouvrages.add(new OuvragePapier("Titre 1", john, LocalDate.now(),1560, 568));
+        ouvrages.add(new OuvragePapier("Titre 2", jean, LocalDate.now(),1560, 568));
+        ouvrages.add(new OuvragePapier("Titre 3", albertine, LocalDate.now(),1560, 568));
+        ouvrages.add(new OuvragePapier("Titre 4", jean, LocalDate.now(),1560, 568));
+        ouvrages.add(new OuvragePapier("Titre 5", albertine, LocalDate.now(),1560, 568));
+        ouvrages.add(new OuvragePapier("Titre 6", john, LocalDate.now(),1560, 568));
+        ouvrages.add(new OuvragePapier("Titre 7", albertine, LocalDate.now(),1560, 568));
+
+        ouvrages.add(new OuvrageVideo("Titre 8", albertine, LocalDate.now(),500000, 15854, 26523.1));
+        ouvrages.add(new OuvrageAudio("Titre 9", jean,LocalDate.now(),184161, 15854, OuvrageAudio.FormatAudio.NUMERIQUE));
+
+        ouvrages.add(new OuvragePapier("Titre 10", jean, LocalDate.now(),1560, 568));
     }
 
     public List<Auteur> getAuteurs() {

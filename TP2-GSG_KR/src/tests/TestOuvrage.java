@@ -4,10 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import livres.Ouvrage;
-import livres.Auteur;
-import livres.Pays;
-import livres.Serie;
+import livres.*;
 
 /**
  * CoursPOO 1
@@ -113,9 +110,9 @@ public class TestOuvrage {
         Auteur auteur2 = new Auteur();
         Auteur auteur3 = new Auteur();
 
-        Ouvrage got = new Ouvrage("Game of Thrones", auteur1);
-        Ouvrage lotr = new Ouvrage("Lord of the Rings", auteur2);
-        Ouvrage hp = new Ouvrage("Harry Potter", auteur3);
+        Ouvrage got = new OuvrageVideo("Game of Thrones", auteur1, LocalDate.now(),500000, 15854, 26523.1);
+        Ouvrage lotr = new OuvrageAudio("Lord of the Rings", auteur2,LocalDate.now(),184161, 15854, OuvrageAudio.FormatAudio.NUMERIQUE);
+        Ouvrage hp = new OuvragePapier("Harry Potter", auteur3,LocalDate.now(),1560, 568);
 
         List<Ouvrage> ouvrages = new ArrayList<>();
         Serie serie = new Serie("Ma Serie", ouvrages);
